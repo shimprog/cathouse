@@ -1,0 +1,304 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+CAT-HOUSES - Домики для котов и кошек
+{% endblock %}
+{% block description %}Изготовка домиков для котов и кошек на заказ, а также стандартные модели{% endblock %}
+{% block keywords %}дом для котов на заказ, купить дом для кота, дом для кота купить в Орехово-Зуево, дом для кота купить в Ликино-Дулёво{% endblock %}
+
+{% block content %}
+    <section class="home-slider owl-carousel img" style="background-image: url({% static 'main/images/bg_1.jpg' %});">
+
+		{% for product in product_model %}
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 ftco-animate">
+            	<span class="subheading">Дом для кота №{{product.housenumber}}</span>
+              <h1 class="mb-4">{{product.title}}</h1>
+              <p class="mb-4 mb-md-5">{{ product.minopisanie|truncatechars:250 }}</p>
+              <p><a href="{{ product.get_absolute_url }}" class="btn btn-primary p-3 px-xl-4 py-xl-3">Купить сейчас</a> <a href="{% url 'modelir' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Посмотреть модели</a></p>
+            </div>
+            <div class="col-md-6 ftco-animate">
+				<div class="embed-responsive embed-responsive-4by3">
+				<iframe class="embed-responsive-item" src="{{ product.treemodel }}"></iframe>
+				</div>
+				</div>
+
+
+
+          </div>
+        </div>
+      </div>
+		{% endfor %}
+
+
+      <div class="slider-item" style="background-image: url({% static 'main/images/bg_3.jpg' %});">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Добро пожаловать</span>
+              <h1 class="mb-4">Мы изготавливаем дома для ваших любимцев </h1>
+              <p class="mb-4 mb-md-5">Индивидуальный подход для каждого покупателя, а также есть шаблонные решения домиков.</p>
+              <p><a href="{% url 'modelir' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Посмотреть варианты домов для котов</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-intro">
+    	<div class="container-wrap">
+    		<div class="wrap d-md-flex">
+	    		<div class="info">
+	    			<div class="row no-gutters">
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-phone"></span></div>
+	    					<div class="text">
+	    						<h3>+7-968-669-1657</h3>
+	    						<p>Мы подберем вам домик</p>
+	    					</div>
+	    				</div>
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-my_location"></span></div>
+	    					<div class="text">
+	    						<h3>Мы работаем</h3>
+	    						<p>По Орехово-Зуевскому району</p>
+	    					</div>
+	    				</div>
+	    				<div class="col-md-4 d-flex ftco-animate">
+	    					<div class="icon"><span class="icon-clock-o"></span></div>
+	    					<div class="text">
+	    						<h3>Мы открыты</h3>
+	    						<p>с 10:00 по 19:00</p>
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<div class="social d-md-flex pl-md-5 p-4 align-items-center">
+	    			<ul class="social-icon">
+              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            </ul>
+	    		</div>
+    		</div>
+    	</div>
+    </section>
+
+
+    <section class="ftco-about d-md-flex">
+    	<div class="one-half img" style="background-image: url({% static 'main/images/about.jpg' %});"></div>
+    	<div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+          <h2 class="mb-4">ДОБРО ПОЖАЛОВАТЬ В <span class="flaticon-pizza">CAT-HOUSES</span></h2>
+        </div>
+        <div>
+  				<p>У нас вы сможете выбрать необходимую модель дома для кота, а также выбрать цвет обшивки. Если вы не сможете определиться с комплексом, то вы можете отправить нам заявку с вашим эскизом или чертежом, мы с Вами свяжемся и обсудим нюансы и конструкторские особенности дома для вашего питомца и с радостью воплотим вашу задумку в реальность. Если Вы захотите видоизменить шаблонный комплекс мы учтем ваши пожелания. Мы используем экологически чистые материалы.
+Материалами опорных столбов домов являются брус или картонные трубки, на столб наматывается вокруг джутовый канат, об который котик с радостью будет точить свои когти, а не об ваш диван. По желанию клиента можно изменить диаметр каната.</p>
+  			</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-services">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Почему мы?</h2>
+            <p>Мы изготовим дом по Вашим габаритам: ширина, глубина, высота. А Это значит вы сможете разместить наш домик так , что он не будет мешать и портить интерьер Вашей квартиры, а прекрасно дополнит его.</p>
+          </div>
+        </div>
+    		<div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+              	<span class="flaticon-diet"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Качество</h3>
+                <p>При создании домиков мы активно используем наши уникальные разработки, которые уже отточены на практике.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+              	<span class="flaticon-bicycle"></span>
+              </div>
+              <div class="media-body">
+                <h3 class="heading">Размещение</h3>
+                <p>Индивидуальный поход по размещению домика, чтобы он отлично влился в атмосферу квартиры.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5"><span class="flaticon-pizza-1"></span></div>
+              <div class="media-body">
+                <h3 class="heading">Прочность</h3>
+                <p>Каждый домик для котиков тщательно продумывается и тестируется на надежность и удобство использования, у нас уникальный дизайн и отличное качество.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+
+    <section class="ftco-menu">
+    	<div class="container-fluid">
+    		<div class="row d-md-flex">
+	    		<div class="col-lg-4 ftco-animate img f-menu-img mb-5 mb-md-0" style="background-image: url({% static 'main/images/about1.jpg' %});">
+	    		</div>
+	    		<div class="col-lg-8 ftco-animate p-md-5">
+		    		<div class="row">
+		          <div class="col-md-12 nav-link-wrap mb-5">
+		            <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+		              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Маленькие</a>
+
+		              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Средние</a>
+
+		              <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Большие</a>
+
+		            </div>
+		          </div>
+		          <div class="col-md-12 d-flex align-items-center">
+
+		            <div class="tab-content ftco-animate" id="v-pills-tabContent">
+
+		              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+		              	<div class="row">
+							{% for mal in product_model_mal %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="{{ mal.get_absolute_url }}" class="menu-img img mb-4" style="background-image: url(media/{{ mal.poster }});"></a>
+		              				<div class="text">
+		              					<h3><a href="{{ mal.get_absolute_url }}">{{mal.title}}</a></h3>
+		              					<p>{{ mal.minopisanie|truncatechars:200 }}</p>
+		              					<p class="price"><span>Цена от: {{ mal.cenaot}}</span></p>
+		              					<p><a href="{{ mal.get_absolute_url }}" class="btn btn-white btn-outline-white">Купить</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+							{% endfor %}
+		              	</div>
+		              </div>
+
+		              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+		                <div class="row">
+		              	{% for sred in product_model_sred %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="{{ sred.get_absolute_url }}" class="menu-img img mb-4" style="background-image: url(media/{{ sred.poster }});"></a>
+		              				<div class="text">
+		              					<h3><a href="{{ sred.get_absolute_url }}">{{sred.title}}</a></h3>
+		              					<p>{{ sred.minopisanie|truncatechars:200 }}</p>
+		              					<p class="price"><span>Цена от: {{ sred.cenaot}}</span></p>
+		              					<p><a href="{{ sred.get_absolute_url }}" class="btn btn-white btn-outline-white">Купить</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+							{% endfor %}
+		              	</div>
+		              </div>
+
+		              <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+		                <div class="row">
+		              			{% for bolsh in product_model_bolsh %}
+		              		<div class="col-md-4 text-center">
+		              			<div class="menu-wrap">
+		              				<a href="{{ bolsh.get_absolute_url }}" class="menu-img img mb-4" style="background-image: url(media/{{ bolsh.poster }});"></a>
+		              				<div class="text">
+		              					<h3><a href="{{ bolsh.get_absolute_url }}">{{bolsh.title}}</a></h3>
+		              					<p>{{ bolsh.minopisanie|truncatechars:200 }}</p>
+		              					<p class="price"><span>Цена от: {{ bolsh.cenaot}}</span></p>
+		              					<p><a href="{{ bolsh.get_absolute_url }}" class="btn btn-white btn-outline-white">Купить</a></p>
+		              				</div>
+		              			</div>
+		              		</div>
+							{% endfor %}
+		              	</div>
+		              </div>
+
+
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Новости о кошках и котах</h2>
+            <p>О нелегкой жизни мяумяу</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+
+			{% for newsmodel in newsmodels %}
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry align-self-stretch">
+              <a href="{{ newsmodel.get_absolute_url }}" class="block-20" style="background-image: url('/media/{{ newsmodel.poster }}')">
+              </a>
+              <div class="text py-4 d-block">
+              	<div class="meta">
+                  <div><a href="{{ newsmodel.get_absolute_url }}">{{newsmodel.datapublic}}</a></div>
+                </div>
+                <h3 class="heading mt-2"><a href="{{ newsmodel.get_absolute_url }}">{{ newsmodel.title }}</a></h3>
+                <p>   {{newsmodel.miniopisanie|truncatechars:250}}</p>
+              </div>
+            </div>
+          </div>
+			{% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+		<section class="ftco-appointment">
+			<div class="overlay"></div>
+    	<div class="container-wrap">
+    		<div class="row no-gutters d-md-flex align-items-center">
+    			<div class="col-md-6 d-flex align-self-stretch">
+    				<div id="map"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac08e532057a244574ff2ae93a42071f1433f3970d722ecc09e466a27bc7d84e2&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script></div>
+    			</div>
+	    		<div class="col-md-6 appointment ftco-animate">
+	    			<h3 class="mb-3">Связаться с нами</h3>
+	    			<form method="post" class="appointment-form">
+						{% csrf_token %}
+	    				<div class="d-md-flex">
+		    				<div class="form-group">
+		    					{{ form.name }}
+		    				</div>
+	    				</div>
+	    				<div class="d-me-flex">
+	    					<div class="form-group">
+		    					{{ form.telefon }}
+		    				</div>
+	    				</div>
+	    				<div class="form-group">
+	              {{ form.opisanie }}
+	            </div>
+	            <div class="form-group">
+	              <input type="submit" value="Отправить" class="btn btn-primary py-3 px-4">
+					<span>{{ error }}<br></span>
+	            </div>
+	    			</form>
+	    		</div>
+    		</div>
+    	</div>
+    </section>
+
+
+{% endblock %}

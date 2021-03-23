@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Модели домиков для котов
+{% endblock %}
+{% block description %}Каталог модели домов для котов. Не знаете какой выбрать или хотите по своему? Закажите дом по вашему рисунку или чертежу{% endblock %}
+{% block keywords %}дома для котов, заказ дома для кота{% endblock %}
+
+{% block content %}
+
+<section class="ftco-section">
+      <div class="container">
+          <a href="{% url 'home' %}">Главная</a> > Модели
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center fadeInUp ftco-animated">
+            <h2 class="mb-4">Шаблонные решения домов</h2>
+            <p>эти решения балблабла</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+            {% for house in page_obj %}
+          <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
+          	<div class="blog-entry align-self-stretch">
+              <a href="{{ house.get_absolute_url }}" class="block-20" style="background-image: url('media/{{ house.poster }}')">
+              </a>
+              <div class="text py-4 d-block">
+              	<div class="meta">
+                  <div><a href="{{ house.get_absolute_url }}">Дом для кота №{{house.housenumber}}</a></div>
+                <h3 class="heading mt-2"><a href="{{ house.get_absolute_url }}">{{ house.title }}</a></h3>
+                <p>{{ house.minopisanie }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+             {% endfor %}
+
+      </div>
+          {% include 'main/paginaci.html' %}
+    </section>
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ newsmodels.title }}
+{% endblock %}
+{% block description %}Новости из мира котиков{% endblock %}
+{% block keywords %}новости о кошках, новости о котах{% endblock %}
+
+{% block content %}
+<section class="ftco-section">
+<!--    <section class="ftco-section ftco-degree-bg">-->
+      <div class="container">
+          <a href="{% url 'home' %}">Главная</a> > <a href="{% url 'news' %}">Новости</a>
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">{{ newsmodels.title }}</h2>
+             <div><a href="{{ newsmodels.get_absolute_url }}">{{newsmodels.datapublic}}</a></div>
+              <p>{{newsmodels.miniopisanie}}</p>
+            <p>
+              <div style="text-align: center"/>
+              <img src="/media/{{ newsmodels.imagenews }}" class="img-thumbnail"></div>
+            </p><br>
+          <p>{% autoescape off %}{{newsmodels.opisanie}}{% endautoescape %}</p>
+
+
+        </div></div>
+          </div> <!-- .col-md-8 -->
+
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+{% endblock %}

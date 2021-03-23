@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ materialmodels.name }}
+{% endblock %}
+{% block description %}{{materialmodels.opisanie}}{% endblock %}
+{% block keywords %}Материал для дома кота{% endblock %}
+
+{% block content %}
+    <section class="ftco-section ftco-degree-bg">
+      <div class="container">
+          <a href="{% url 'home' %}">Главная</a> > <a href="{% url 'materials' %}">Материалы</a>
+        <div class="row">
+          <div class="col-md-8 ftco-animate">
+            <h2 class="mb-3">{{ materialmodels.name }}</h2>
+             <div><a href="{{ materialmodels.get_absolute_url }}">{{ materialmodels.cvetmateriala }}</a></div>
+            <p>
+              <img class="img-thumbnail" src="/media/{{ materialmodels.imagenews }}">
+            </p><br>
+            <p>{% autoescape off %}{{materialmodels.opisanie}}{% endautoescape %}</p>
+           </div></div><!-- .col-md-8 -->
+
+
+
+    </section> <!-- .section -->
+
+{% endblock %}

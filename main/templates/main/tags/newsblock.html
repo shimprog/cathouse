@@ -1,0 +1,14 @@
+{% for newsblock in newsblockss %}
+<div class="block-21 mb-4 d-flex">
+
+
+
+    <a href="{{ newsblock.get_absolute_url }}" class="blog-img mr-4" style="background-image: url(/media/{{ newsblock.poster }});"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="{{ newsblock.get_absolute_url }}">{{ newsblock.title }}</a></h3>
+                  <div class="meta">
+                    <div><a href="{{ newsblock.get_absolute_url }}"><span class="icon-calendar"></span> {{newsblock.datapublic}}</a></div>
+                  </div>
+                </div>
+              </div>
+{% endfor %}

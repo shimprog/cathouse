@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{ housemodels.title }}
+{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+
+
+{% block content %}
+
+<!--</div>-->
+<section class="ftco-section">
+
+<div class="container">
+    <a href="{% url 'home' %}">Главная</a> > <a href="{% url 'modelir' %}">Модели</a>
+    <h1>{{ housemodels.title}}</h1>
+                    <div class="row product-flex">
+
+                        <div class="col-lg-4 product-flex-info">
+                            <div class="clearfix">
+
+                                <div class="clearfix">
+                                    <div class="info-box">
+                                        <span><strong>Дом для кота №{{ housemodels.housenumber}}</strong></span><br>
+
+                                    </div>
+                                    <!--price wrapper-->
+
+                                    <hr>
+
+                                    <!--info-box-->
+
+                                    <div class="info-box">
+                                        <span><strong>Материалы обшивки:</strong></span><br>
+                                        {% for material in materials %}
+                                        <a href="{{material.get_absolute_url}}"><img src="/media/{{material.imagenews}}" width="100px" height="100px" alt="..."></a>
+                                         {% endfor %}
+                                    </div>
+
+
+                                    <hr>
+
+                                    <div class="info-box">
+                                        <span>
+                                            {{ housemodels.opisanie}}
+                                        </span>
+                                    </div>
+<hr>
+                                    <div class="price">
+                                        <span class="h3">
+                                            <small>Цена от: {{ housemodels.cenaot}}</small>
+                                        </span>
+                                    </div>
+                                    <hr>
+
+
+                                    <div style="text-align: center"/><a href="/product/{{ housemodels.url }}/zakaz" class="btn btn-success">Заказать дом</a></div>
+
+
+                                </div> <!--/clearfix-->
+                            </div> <!--/product-info-wrapper-->
+                        </div> <!--/col-lg-4-->
+                        <!--product item gallery-->
+
+                        <div class="col-lg-8 product-flex-gallery">
+                            <iframe class="embed-responsive-item" height="80%" width="100%" src="{{ housemodels.treemodel }}"></iframe>
+                            </div>
+                </div>
+
+<br>
+
+</section>
+{% endblock %}

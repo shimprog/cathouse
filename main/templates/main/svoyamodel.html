@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Заказ по своему чертежу
+{% endblock %}
+{% block description %}Не нравятся модели из катологов? Изготовим дом по вашему рисунку или чертежу.{% endblock %}
+{% block keywords %}дома для котов на заказ, свой дом для кота{% endblock %}
+
+{% block content %}
+<section class="ftco-section contact-section">
+    <div class="container">
+        <a href="{% url 'home' %}">Главная</a> > Своя модель
+    <div style="text-align: center"/>
+        <h1>Заказ дома по своему чертежу</h1></div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        Ваше имя:
+        {{ form.name }}<br>
+        Ваш телефон:
+        {{ form.telefon}}<br>
+        <div style="text-align: center"/><h3>Габариты места где будет стоять дом:</h3></div>
+        <br>
+        Ширина:
+        {{ form.shirina}}<br>
+        Высота:
+        {{ form.visota}}<br>
+        Глубина:
+        {{ form.glubina}}<br>
+        Ваш чертеж:
+        {{ form.chertej }}
+        Подробное описание:
+        {{ form.opisanie }}<br>
+
+        <button type="submit" class="btn btn-success">Заказать дом</button>
+        <span>{{ error }}<br></span>
+    </form>
+    </div><br>
+{% endblock %}

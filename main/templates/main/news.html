@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Новости о котиках
+{% endblock %}
+{% block description %}Новости из мира наших мохнатых друзей{% endblock %}
+{% block keywords %}новости о котах, новости о котиках, новости о кошках{% endblock %}
+
+{% block content %}
+<section class="ftco-section">
+      <div class="container">
+          <a href="{% url 'home' %}">Главная</a> > Новости
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate text-center fadeInUp ftco-animated">
+            <h2 class="mb-4">Новости</h2>
+            <p>эти решения балблабла</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+            {% for newsmodel in page_obj %}
+          <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
+          	<div class="blog-entry align-self-stretch">
+              <a href="{{ newsmodel.get_absolute_url }}" class="block-20" style="background-image: url('media/{{ newsmodel.poster }}')">
+              </a>
+              <div class="text py-4 d-block">
+              	<div class="meta">
+                  <div><a href="{{ newsmodel.get_absolute_url }}">{{newsmodel.datapublic}}</a></div>
+                <h3 class="heading mt-2"><a href="{{ newsmodel.get_absolute_url }}">{{ newsmodel.title }}</a></h3>
+                <p>{{ newsmodel.miniopisanie }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+             {% endfor %}
+      </div>
+
+
+            {% include 'main/paginaci.html' %}
+
+<br>
+    </section>
+
+          {% endblock %}
+

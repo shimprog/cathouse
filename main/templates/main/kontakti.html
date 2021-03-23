@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Контакты
+{% endblock %}
+{% block description %}Наши контактные данные{% endblock %}
+{% block keywords %}контакты для заказа дома для кота, дом для кота в Орехово-Зуево, дом для кота в Ликино-Дулёво{% endblock %}
+
+
+{% block content %}
+<section class="ftco-section contact-section">
+	<div class="container"><a href="{% url 'home' %}">Главная</a> > Контакты</div>
+      <div class="container mt-5">
+
+        <div class="row block-9">
+					<div class="col-md-4 contact-info ftco-animate">
+						<div class="row">
+							<div class="col-md-12 mb-4">
+	              <h2 class="h4">Контактная информация</h2>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Адрес:</span> Московская область, г. Орехово-Зуево, г. Ликино-Дулево</p>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Телефон:</span> <a href="tel://1234567920">+ 7968 66916 57</a></p>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Email:</span> <a href="mailto:info@yoursite.com">cathouses@yandex.ru</a></p>
+	            </div>
+<!--	            <div class="col-md-12 mb-3">-->
+<!--	              <p><span>Website:</span> <a href="#">yoursite.com</a></p>-->
+<!--	            </div>-->
+						</div>
+					</div>
+					<div class="col-md-1"></div>
+          <div class="col-md-6 ftco-animate">
+            <form method="post" class="contact-form">
+                {% csrf_token %}
+            	<div class="row">
+            		<div class="col-md-6">
+	                <div class="form-group">
+	                  {{ form.name }}
+	                </div>
+                </div>
+                <div class="col-md-6">
+	                <div class="form-group">
+	                  {{ form.telefon }}
+	                </div>
+	                </div>
+              </div>
+              <div class="form-group">
+                {{ form.temaobrash }}
+              </div>
+              <div class="form-group">
+                {{ form.opisanie }}
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Отправить сообщение" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+ {% endblock %}

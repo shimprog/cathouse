@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Заказ дома {{ housemodels.title }}
+{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+
+{% block content %}
+<section class="ftco-section contact-section">
+    <div class="container">
+        <a href="{% url 'home' %}">Главная</a> > Заказ
+    <div style="text-align: center"/>
+        <h1>Заказ дома {{ housemodels.title }}</h1>
+        <h2>Дом для кота №{{ housemodels.housenumber }}</h2>
+<img src="/media/{{ housemodels.poster }}" class="img-thumbnail" width="300px" height="300px"></div>
+    <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        Модель дома:
+        {{ form.name_house }}
+        Ваше имя:
+        {{ form.name }}<br>
+        Ваш телефон:
+        {{ form.telefon}}<br>
+        <div style="text-align: center"/><h3>Габариты места где будет стоять дом:</h3></div>
+        <br>
+        Ширина:
+        {{ form.shirina}}<br>
+        Высота:
+        {{ form.visota}}<br>
+        Глубина:
+        {{ form.glubina}}<br>
+        <button type="submit" class="btn btn-success">Заказать дом</button>
+        <span>{{ error }}<br></span>
+    </form>
+    </div><br>
+    </section>
+{% endblock %}
